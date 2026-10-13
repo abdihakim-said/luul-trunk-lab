@@ -31,3 +31,4 @@ make build      # docker image tagged with the commit SHA
 ```
 
 Then follow **LAB.md**.
+- GET /version shows the running commit
