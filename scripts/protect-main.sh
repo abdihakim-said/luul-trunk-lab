@@ -25,4 +25,4 @@ gh api -X PUT "repos/$REPO/branches/main/protection" \
 }
 JSON
 echo "main is protected on $REPO"
-echo "(Approvals are 0 so you can practise alone. At a company it is usually 1-2.)"
+echo "(Required approvals: 0 for a single-maintainer repo. Raise to 1-2 for a team.)"
