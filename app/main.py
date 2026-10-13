@@ -45,7 +45,7 @@ def route(path):
         return 200, {"version": VERSION, "commit": os.environ.get("GIT_SHA", "local")}
     if path == "/":
         return 200, {"message": greeting(load_flags())}
-    return 404, {"error": "not found"}
+    return 404, {"error": "path not found"}
 
 
 class Handler(BaseHTTPRequestHandler):
