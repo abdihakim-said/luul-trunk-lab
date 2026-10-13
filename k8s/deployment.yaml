@@ -1,0 +1,35 @@
+# How this app would run on Kubernetes. In GitOps, Argo CD / Flux watches this
+# folder in Git and applies it. To deploy a new version you change the image tag
+# in a PR - Git becomes the single source of truth.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: luul-trunk-lab
+  labels: { app: luul-trunk-lab }
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app: luul-trunk-lab }
+  template:
+    metadata:
+      labels: { app: luul-trunk-lab }
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/abdihakim-said/luul-trunk-lab:REPLACE_WITH_SHA
+          ports: [{ containerPort: 8080 }]
+          env:
+            - name: FLAG_NEW_GREETING   # feature flag per environment
+              value: "false"
+          readinessProbe:
+            httpGet: { path: /health, port: 8080 }
+          livenessProbe:
+            httpGet: { path: /health, port: 8080 }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: luul-trunk-lab
+spec:
+  selector: { app: luul-trunk-lab }
+  ports: [{ port: 80, targetPort: 8080 }]
