@@ -34,7 +34,7 @@ def load_flags():
 def greeting(flags):
     if flags.get("new_greeting"):
         return "Welcome to Luul Solutions platform!"
-    return "Hello from Luul Solutions"
+    return "Hi"
 
 
 def route(path):
