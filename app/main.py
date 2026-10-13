@@ -42,7 +42,7 @@ def route(path):
     if path == "/health":
         return 200, {"status": "ok"}
     if path == "/version":
-        return 200, {"version": VERSION, "commit": os.environ.get("GIT_SHA", "local")}
+        return 200, {"app": "luul-trunk-lab", "version": VERSION, "commit": os.environ.get("GIT_SHA", "local")}
     if path == "/":
         return 200, {"message": greeting(load_flags())}
     return 404, {"error": "path not found"}
