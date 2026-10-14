@@ -33,9 +33,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build image
-        run: docker build --build-arg GIT_SHA=${{ github.sha }} -t luul-trunk-lab:ci .
+        run: docker build --build-arg GIT_SHA=${{ github.sha }} -t trunk-based-cicd-reference:ci .
       - name: Smoke test
-        run: ./scripts/smoke-test.sh luul-trunk-lab:ci
+        run: ./scripts/smoke-test.sh trunk-based-cicd-reference:ci
 
   branch-age:
     # Trunk-based rule: branches must be SHORT-lived. Warn if a PR branch is old.

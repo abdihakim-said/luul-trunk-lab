@@ -1,4 +1,4 @@
-# luul-trunk-lab: trunk-based CI/CD pipeline
+# trunk-based-cicd-reference: trunk-based CI/CD pipeline
 
 A compact reference implementation of **trunk-based development with continuous delivery** on GitHub Actions: protected trunk, required checks, squash-only merges, feature flags, SHA-tagged images promoted through dev → staging → prod with a manual approval gate, and tag-driven releases.
 

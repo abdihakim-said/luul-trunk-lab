@@ -1,5 +1,5 @@
 # Who must review changes to which files. Replace with your username / team.
-# Example for a company:  /k8s/  @luul-solutions/platform-team
+# Example for a company:  /k8s/  @your-org/platform-team
 *                   @abdihakim-said
 /.github/           @abdihakim-said
 /k8s/               @abdihakim-said

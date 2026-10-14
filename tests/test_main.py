@@ -21,10 +21,10 @@ class RouteTests(unittest.TestCase):
 
 class FeatureFlagTests(unittest.TestCase):
     def test_old_greeting_when_flag_off(self):
-        self.assertEqual(main.greeting({"new_greeting": False}), "Hello from Luul Solutions")
+        self.assertEqual(main.greeting({"new_greeting": False}), "Hello from the platform")
 
     def test_new_greeting_when_flag_on(self):
-        self.assertEqual(main.greeting({"new_greeting": True}), "Welcome to Luul Solutions platform!")
+        self.assertEqual(main.greeting({"new_greeting": True}), "Welcome to the new platform!")
 
     def test_env_var_overrides_flag_file(self):
         with mock.patch.dict(os.environ, {"FLAG_NEW_GREETING": "true"}):

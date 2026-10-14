@@ -1,4 +1,4 @@
-IMAGE ?= luul-trunk-lab
+IMAGE ?= trunk-based-cicd-reference
 SHA   := $(shell git rev-parse --short HEAD 2>/dev/null || echo local)
 
 .PHONY: test lint run build docker-run smoke
