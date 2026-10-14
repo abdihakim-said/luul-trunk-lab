@@ -4,19 +4,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: luul-trunk-lab
-  labels: { app: luul-trunk-lab }
+  name: trunk-based-cicd-reference
+  labels: { app: trunk-based-cicd-reference }
 spec:
   replicas: 2
   selector:
-    matchLabels: { app: luul-trunk-lab }
+    matchLabels: { app: trunk-based-cicd-reference }
   template:
     metadata:
-      labels: { app: luul-trunk-lab }
+      labels: { app: trunk-based-cicd-reference }
     spec:
       containers:
         - name: app
-          image: ghcr.io/abdihakim-said/luul-trunk-lab:REPLACE_WITH_SHA
+          image: ghcr.io/abdihakim-said/trunk-based-cicd-reference:REPLACE_WITH_SHA
           ports: [{ containerPort: 8080 }]
           env:
             - name: FLAG_NEW_GREETING   # feature flag per environment
@@ -29,7 +29,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: luul-trunk-lab
+  name: trunk-based-cicd-reference
 spec:
-  selector: { app: luul-trunk-lab }
+  selector: { app: trunk-based-cicd-reference }
   ports: [{ port: 80, targetPort: 8080 }]

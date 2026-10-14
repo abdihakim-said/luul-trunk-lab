@@ -7,5 +7,5 @@ ENVIRONMENT="$1"
 IMAGE="$2"
 
 echo "==> Deploying $IMAGE to $ENVIRONMENT"
-echo "    (real life: helm upgrade --install luul-trunk-lab ./chart --set image=$IMAGE -n $ENVIRONMENT)"
+echo "    (real life: helm upgrade --install trunk-based-cicd-reference ./chart --set image=$IMAGE -n $ENVIRONMENT)"
 echo "==> $ENVIRONMENT is now running $IMAGE"

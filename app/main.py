@@ -33,8 +33,8 @@ def load_flags():
 
 def greeting(flags):
     if flags.get("new_greeting"):
-        return "Welcome to Luul Solutions platform!"
-    return "Hello from Luul Solutions"
+        return "Welcome to the new platform!"
+    return "Hello from the platform"
 
 
 def route(path):
@@ -42,7 +42,7 @@ def route(path):
     if path == "/health":
         return 200, {"status": "ok"}
     if path == "/version":
-        return 200, {"app": "luul-trunk-lab", "version": VERSION, "commit": os.environ.get("GIT_SHA", "local")}
+        return 200, {"app": "trunk-based-cicd-reference", "version": VERSION, "commit": os.environ.get("GIT_SHA", "local")}
     if path == "/":
         return 200, {"message": greeting(load_flags())}
     return 404, {"error": "path not found"}
@@ -61,7 +61,7 @@ class Handler(BaseHTTPRequestHandler):
 
 def main():
     port = int(os.environ.get("PORT", "8080"))
-    print(f"luul-trunk-lab v{VERSION} listening on :{port}")
+    print(f"trunk-based-cicd-reference v{VERSION} listening on :{port}")
     HTTPServer(("0.0.0.0", port), Handler).serve_forever()
 
 
